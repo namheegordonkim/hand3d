@@ -473,7 +473,8 @@ def plot_hand_3d(coords_xyz, axis, color_fixed=None, linewidth='1'):
             axis.plot(coords[:, 0], coords[:, 1], coords[:, 2], color=color, linewidth=linewidth)
         else:
             axis.plot(coords[:, 0], coords[:, 1], coords[:, 2], color_fixed, linewidth=linewidth)
-
+    for joint_idx in range(coords_xyz.shape[0]):
+        axis.text(coords_xyz[joint_idx, 0], coords_xyz[joint_idx, 1], coords_xyz[joint_idx, 2], str(joint_idx))
     axis.view_init(azim=-90., elev=90.)
 
 

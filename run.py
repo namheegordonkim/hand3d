@@ -20,6 +20,8 @@ from __future__ import print_function, unicode_literals
 import tensorflow as tf
 import numpy as np
 import scipy.misc
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -29,11 +31,12 @@ from utils.general import detect_keypoints, trafo_coords, plot_hand, plot_hand_3
 if __name__ == '__main__':
     # images to be shown
     image_list = list()
-    image_list.append('./data/img.png')
-    image_list.append('./data/img2.png')
-    image_list.append('./data/img3.png')
-    image_list.append('./data/img4.png')
-    image_list.append('./data/img5.png')
+    # image_list.append('./data/img.png')
+    # image_list.append('./data/img2.png')
+    # image_list.append('./data/img3.png')
+    # image_list.append('./data/img4.png')
+    # image_list.append('./data/img5.png')
+    image_list.append('/data/images/example01.jpg')
 
     # network input
     image_tf = tf.placeholder(tf.float32, shape=(1, 240, 320, 3))
@@ -89,4 +92,5 @@ if __name__ == '__main__':
         ax4.set_xlim([-3, 3])
         ax4.set_ylim([-3, 1])
         ax4.set_zlim([-3, 3])
-        plt.show()
+        plt.savefig("./dump.png")
+        plt.close()
